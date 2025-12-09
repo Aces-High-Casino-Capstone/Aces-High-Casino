@@ -1,10 +1,20 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      # Manually install .NET 9.0 SDK
+      - echo "Downloading and installing .NET 9.0 SDK..."
+      - wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+      - chmod +x ./dotnet-install.sh
+      - ./dotnet-install.sh --channel 9.0 --install-dir /root/.dotnet
+      - export PATH=$PATH:/root/.dotnet
   build:
     commands:
       - echo Restoring dependencies...
-      - cd server/API
+      # IMPORTANT: I noticed your error log says "server/API/API.csproj"
+      # If your folder is actually named "Casino.API", change this line back!
+      - cd server/Casino.API 
       - dotnet restore
       - echo Building and publishing...
       - dotnet publish -c Release -o ../../publish_output
