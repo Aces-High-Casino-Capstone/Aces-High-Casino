@@ -7,7 +7,7 @@ phases:
       - cd server/API 
       - dotnet restore
       - echo Building and publishing...
-      - dotnet publish -c Release -o ../../publish_output
+      - dotnet publish -c Release -f net8.0 -o ../../publish_output
 artifacts:
   files:
     - '**/*'
