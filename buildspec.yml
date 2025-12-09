@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Restoring dependencies...
+      - cd server/Casino.API
+      - dotnet restore
+      - echo Building and publishing...
+      - dotnet publish -c Release -o ../../publish_output
+artifacts:
+  files:
+    - '**/*'
+  base-directory: publish_output
