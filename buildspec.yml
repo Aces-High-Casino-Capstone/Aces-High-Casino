@@ -1,14 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      # Manually install .NET 9.0 SDK
-      - echo "Downloading and installing .NET 9.0 SDK..."
-      - wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-      - chmod +x ./dotnet-install.sh
-      - ./dotnet-install.sh --channel 9.0 --install-dir /root/.dotnet
-      - export PATH=$PATH:/root/.dotnet
   build:
     commands:
       - echo Restoring dependencies...
